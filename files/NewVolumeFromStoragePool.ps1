@@ -9,7 +9,7 @@ $newPool = Get-StoragePool | ? FriendlyName -eq $newPoolName
 # diskRedundancy determines how many mirrors there will be. 1 = two-way mirror, 2 = three-way mirror.
 $diskRedundancy = 2 
 
-# adding a factor of .95 to this because we don't truly have access to all the space in the pool. Not yet sure how to make this definitive calculation.
+# adding a factor of .95 to this because we don't truly have access to all the space in the pool. Not yet sure how to make this calculation definitive.
 $newVolumeSize = $newPool.Size / ($diskRedundancy + 1) * .95 
 
 # Create a volume on the virtual disk.
